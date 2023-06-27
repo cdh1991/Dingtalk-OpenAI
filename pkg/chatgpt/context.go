@@ -49,6 +49,7 @@ type (
 	conversation struct {
 		Role   *role
 		Prompt string
+		Klb string
 	}
 
 	role struct {

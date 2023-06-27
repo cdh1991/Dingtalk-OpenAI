@@ -13,7 +13,6 @@ type Prompt struct {
 	Suffix string `yaml:"suffix"`
 }
 
-
 var prompTmp *[]Prompt
 
 // LoadPrompt 加载Prompt

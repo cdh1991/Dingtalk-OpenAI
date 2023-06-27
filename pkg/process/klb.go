@@ -11,12 +11,12 @@ import (
 // GeneratePrompt 生成当次请求的 Prompt
 func GenerateKlb(msg string) (rst string, err error) {
 	for _, klb := range *public.Klb {
-		if strings.HasPrefix(msg, prompt.Title) {
-			if strings.TrimSpace(msg) == prompt.Title {
-				rst = fmt.Sprintf("%s：\n%s___输入内容___%s", prompt.Title, prompt.Prefix, prompt.Suffix)
+		if strings.HasPrefix(msg, klb.Title) {
+			if strings.TrimSpace(msg) == klb.Title {
+				rst = fmt.Sprintf("%s：\n%s___输入内容___%s", klb.Title, klb.Prefix, klb.Suffix)
 				err = errors.New("消息内容为空") // 当提示词之后没有文本，抛出异常，以便直接返回Prompt所代表的内容
 			} else {
-				rst = prompt.Prefix + strings.TrimSpace(strings.Replace(msg, prompt.Title, "", -1)) + prompt.Suffix
+				rst = klb.Prefix + strings.TrimSpace(strings.Replace(msg, klb.Title, "", -1)) + klb.Suffix
 			}
 			return
 		} else {

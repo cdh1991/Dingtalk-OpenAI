@@ -20,6 +20,8 @@ func InitSvc() {
 	Config = config.LoadConfig()
 	// 加载prompt
 	Prompt = config.LoadPrompt()
+	Klb = config.LoadKlb()
+	
 	// 初始化缓存
 	UserService = cache.NewUserService()
 	// 初始化钉钉开放平台的客户端，用于访问上传图片等能力

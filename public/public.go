@@ -11,6 +11,7 @@ import (
 var UserService cache.UserServiceInterface
 var Config *config.Configuration
 var Prompt *[]config.Prompt
+var Klb *[]config.Klb
 var DingTalkClientManager dingbot.DingTalkClientManagerInterface
 
 const DingTalkClientIdKeyName = "DingTalkClientId"

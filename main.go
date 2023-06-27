@@ -247,7 +247,15 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 			var err error
 			msgObj.Text.Content, err = process.GenerateKlb(msgObj.Text.Content)
 			msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), msgObj.Text.Content)
-			err = process.ProcessRequest(&msgObj)
+
+			if err != nil {
+				_, err = msgObj.ReplyToDingtalk(string(dingbot.TEXT), msgObj.Text.Content)
+				if err != nil {
+					logger.Warning(fmt.Errorf("send message error: %v", err))
+					return
+				}
+				return
+			}
 
 			return
 		case strings.HasPrefix(msgObj.Text.Content, "#图片"):

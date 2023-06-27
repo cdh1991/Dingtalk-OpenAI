@@ -14,7 +14,7 @@ type Klb struct {
 }
 
 
-var klgTmp *[]Klb
+var klbTmp *[]Klb
 
 // LoadPrompt 加载Prompt
 func LoadKlb() *[]Klb {

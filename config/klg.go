@@ -7,25 +7,25 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-type Prompt struct {
+type Klb struct {
 	Title  string `yaml:"title"`
 	Prefix string `yaml:"prefix"`
 	Suffix string `yaml:"suffix"`
 }
 
 
-var prompTmp *[]Prompt
+var klgTmp *[]Klb
 
 // LoadPrompt 加载Prompt
-func LoadPrompt() *[]Prompt {
-	data, err := ioutil.ReadFile("prompt.yml")
+func LoadKlb() *[]Klb {
+	data, err := ioutil.ReadFile("Klb.yml")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = yaml.Unmarshal(data, &prompTmp)
+	err = yaml.Unmarshal(data, &klbTmp)
 	if err != nil {
 		log.Fatal(err)
 	}
-	return prompTmp
+	return klbTmp
 }

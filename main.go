@@ -243,6 +243,12 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 		logger.Info(fmt.Sprintf("🙋 %s发起的问题: %#v", msgObj.SenderNick, msgObj.Text.Content))
 		// 除去帮助之外的逻辑分流在这里处理
 		switch {
+		case strings.HasPrefix(msgObj.Text.Content, "#知识库"):
+			
+			msgObj.Text.Content, err = process.GenerateKlb(msgObj.Text.Content)
+			msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), msgObj.Text.Content)
+
+
 		case strings.HasPrefix(msgObj.Text.Content, "#图片"):
 			err := process.ImageGenerate(c, &msgObj)
 			if err != nil {

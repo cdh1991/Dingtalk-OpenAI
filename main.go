@@ -249,12 +249,7 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 			msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), msgObj.Text.Content)
 
 			if err != nil {
-				_, err = msgObj.ReplyToDingtalk(string(dingbot.TEXT), msgObj.Text.Content)
-				if err != nil {
-					logger.Warning(fmt.Errorf("send message error: %v", err))
-					return
-				}
-				return
+			
 			}
 
 			return

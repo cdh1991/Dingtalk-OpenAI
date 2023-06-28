@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"strings"
-	"context"
 
 	"github.com/eryajf/chatgpt-dingtalk/public"
 	"github.com/eryajf/chatgpt-dingtalk/pkg/dingbot"
@@ -26,6 +25,6 @@ func GenerateKlb(msg string) (rst string, err error) {
 			rst = msg
 		}
 	}
-	msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), rst)
+	msg.ReplyToDingtalk(string(dingbot.MARKDOWN), rst)
 	return
 }

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"./public"
-	"./pkg/dingbot"
+	"public"
+	"/pkg/dingbot"
 	
 
 )

@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"strings"
 
-	"public"
-	"/pkg/dingbot"
+	"github.com/eryajf/chatgpt-dingtalk/public"
+	"github.com/eryajf/chatgpt-dingtalk/pkg/dingbot"
 	
 
 )

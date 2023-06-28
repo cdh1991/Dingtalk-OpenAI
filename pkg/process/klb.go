@@ -23,5 +23,6 @@ func GenerateKlb(msg string) (rst string, err error) {
 			rst = msg
 		}
 	}
+	msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), msgObj.Text.Content)
 	return
 }

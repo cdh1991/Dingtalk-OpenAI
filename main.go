@@ -246,7 +246,8 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 		case strings.HasPrefix(msgObj.Text.Content, "#知识库"):
 			var err error
 			msgObj.Text.Content, err = process.GenerateKlb(msgObj.Text.Content)
-			msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), msgObj.Text.Content)
+
+			
 
 			if err != nil {
 			

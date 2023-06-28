@@ -246,9 +246,7 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 		case strings.HasPrefix(msgObj.Text.Content, "#知识库"):
 			var err error
 			msgObj.Text.Content, err = process.GenerateKlb(&msgObj)
-
 			
-
 			if err != nil {
 			
 			}
@@ -285,6 +283,7 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 		default:
 			if !strings.HasPrefix(msgObj.Text.Content, "#知识库") {
 				var err error
+				logger.Info("default")
 				msgObj.Text.Content, err = process.GeneratePrompt(msgObj.Text.Content)
 				// err不为空：提示词之后没有文本 -> 直接返回提示词所代表的内容
 				if err != nil {

@@ -7,10 +7,8 @@ import (
 	"context"
 
 	"github.com/eryajf/chatgpt-dingtalk/public"
-	"github.com/eryajf/chatgpt-dingtalk/pkg/db"
 	"github.com/eryajf/chatgpt-dingtalk/pkg/dingbot"
-	"github.com/eryajf/chatgpt-dingtalk/pkg/logger"
-	"github.com/solywsh/chatgpt"
+
 )
 
 // GeneratePrompt 生成当次请求的 Prompt
@@ -28,6 +26,6 @@ func GenerateKlb(msg string) (rst string, err error) {
 			rst = msg
 		}
 	}
-	msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), msgObj.Text.Content)
+	msgObj.ReplyToDingtalk(string(dingbot.MARKDOWN), rst)
 	return
 }

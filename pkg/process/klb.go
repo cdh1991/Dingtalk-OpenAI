@@ -4,8 +4,13 @@ import (
 	"errors"
 	"fmt"
 	"strings"
+	"context"
 
 	"github.com/eryajf/chatgpt-dingtalk/public"
+	"github.com/eryajf/chatgpt-dingtalk/pkg/db"
+	"github.com/eryajf/chatgpt-dingtalk/pkg/dingbot"
+	"github.com/eryajf/chatgpt-dingtalk/pkg/logger"
+	"github.com/solywsh/chatgpt"
 )
 
 // GeneratePrompt 生成当次请求的 Prompt

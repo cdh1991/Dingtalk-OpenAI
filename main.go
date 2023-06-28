@@ -245,7 +245,7 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 		switch {
 		case strings.HasPrefix(msgObj.Text.Content, "#知识库"):
 			var err error
-			msgObj.Text.Content, err = process.GenerateKlb(msgObj.Text.Content)
+			msgObj.Text.Content, err = process.GenerateKlb(&msgObj)
 
 			
 

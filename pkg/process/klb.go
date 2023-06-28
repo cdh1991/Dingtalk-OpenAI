@@ -12,7 +12,8 @@ import (
 )
 
 // GeneratePrompt 生成当次请求的 Prompt
-func GenerateKlb(msg string) (rst string, err error) {
+func GenerateKlb(rmsg *dingbot.ReceiveMsg) (rst string, err error) {
+	msg := rmsg.Text.Content
 	for _, klb := range *public.Klb {
 		if strings.HasPrefix(msg, klb.Title) {
 			if strings.TrimSpace(msg) == klb.Title {
@@ -26,6 +27,6 @@ func GenerateKlb(msg string) (rst string, err error) {
 			rst = msg
 		}
 	}
-	msg.ReplyToDingtalk(string(dingbot.MARKDOWN), rst)
+	rmsg.ReplyToDingtalk(string(dingbot.MARKDOWN), ret)
 	return
 }

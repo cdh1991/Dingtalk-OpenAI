@@ -297,7 +297,7 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 				}
 				err = process.ProcessRequest(&msgObj)
 				if err != nil {
-					logger.Warning(fmt.Errorf("process request: %v", err))
+					logger.Warning(fmt.Errorf("process request132: %v", err))
 					return
 				}
 				return

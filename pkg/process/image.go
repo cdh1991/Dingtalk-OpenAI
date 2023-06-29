@@ -36,7 +36,7 @@ func ImageGenerate(ctx context.Context, rmsg *dingbot.ReceiveMsg) error {
 	reply, err := chatgpt.ImageQa(ctx, rmsg.Text.Content, rmsg.GetSenderIdentifier())
 	if err != nil {
 		logger.Info(fmt.Errorf("gpt request error: %v", err))
-		_, err = rmsg.ReplyToDingtalk(string(dingbot.TEXT), fmt.Sprintf("请求openai失败了6，错误信息5：%v", err))
+		_, err = rmsg.ReplyToDingtalk(string(dingbot.TEXT), fmt.Sprintf("请求openai5555失败了6，错误信息5：%v", err))
 		if err != nil {
 			logger.Error(fmt.Errorf("send message error: %v", err))
 			return err

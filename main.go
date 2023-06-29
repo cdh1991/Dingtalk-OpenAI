@@ -248,7 +248,8 @@ func DoRequest(msgObj dingbot.ReceiveMsg, c *gin.Context) {
 			msgObj.Text.Content, err = process.GenerateKlb(&msgObj)
 			
 			if err != nil {
-			
+				logger.Warning(fmt.Errorf("process request: %v", err))
+				return
 			}
 
 			return

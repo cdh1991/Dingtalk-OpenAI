@@ -104,6 +104,7 @@ func ProcessRequest(rmsg *dingbot.ReceiveMsg) error {
 
 // 执行处理请求
 func Do(mode string, rmsg *dingbot.ReceiveMsg) error {
+	logger.Info("DO")
 	// 先把模式注入
 	public.UserService.SetUserMode(rmsg.GetSenderIdentifier(), mode)
 	switch mode {
@@ -124,7 +125,7 @@ func Do(mode string, rmsg *dingbot.ReceiveMsg) error {
 			logger.Info(fmt.Errorf("gpt request error: %v", err))
 			if strings.Contains(fmt.Sprintf("%v", err), "maximum question length exceeded") {
 				public.UserService.ClearUserSessionContext(rmsg.GetSenderIdentifier())
-				_, err = rmsg.ReplyToDingtalk(string(dingbot.MARKDOWN), fmt.Sprintf("[Wrong] 请求 OpenAI 失败了\n\n> 错误信息3:%v\n\n> 已超过最大文本限制，请缩短提问文字的字数。", err))
+				_, err = rmsg.ReplyToDingtalk(string(dingbot.MARKDOWN), fmt.Sprintf("[Wrong] 请求 OpenAI 失败了\n\n> 错误信息:%v\n\n> 已超过最大文本限制，请缩短提问文字的字数。", err))
 				if err != nil {
 					logger.Warning(fmt.Errorf("send message error: %v", err))
 					return err

@@ -27,6 +27,7 @@ func GenerateKlb(rmsg *dingbot.ReceiveMsg) (rst string, err error) {
 			rst = msg
 		}
 	}
-	rmsg.ReplyToDingtalk(string(dingbot.MARKDOWN), msg+"1")
+	rst = rst + "aaa"
+	rmsg.ReplyToDingtalk(string(dingbot.MARKDOWN), rst)
 	return
 }
